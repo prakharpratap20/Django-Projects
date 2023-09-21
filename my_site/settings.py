@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from re import S
-
+from os import getenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,8 +26,13 @@ SECRET_KEY = 'django-insecure-)5m1gn=k47t4^bm&^i(j)71=r(umkdi89uvng!9e5s506#dua4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
+# DEBUG = getenv("IS_DEVELOPMENT",True)
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = [
+#   getenv("APP_HOST")
+# ]
 
 
 # Application definition
@@ -121,7 +125,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static"
